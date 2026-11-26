@@ -1,0 +1,24 @@
+# Datasets do Roboflow Universe usados no projeto.
+#
+# Como preencher: abra o dataset em https://universe.roboflow.com, clique em
+# "Download Dataset" > "Show download code" e copie workspace, project e version.
+# Prefira versões SEM augmentation (ou com o mínimo possível): a augmentation é
+# feita no treino, e cópias aumentadas do Roboflow inflam as métricas se caírem
+# em splits diferentes (o preparar.py agrupa por imagem original para evitar isso).
+#
+# formato:
+#   yolov8  -> dataset de detecção (caixas); o preparar.py recorta cada nota
+#   folder  -> dataset de classificação (uma pasta por classe)
+#
+# Os valores abaixo são EXEMPLOS — troque pelos datasets que você escolher
+# e registre no README a licença de cada um.
+
+datasets:
+  - workspace: SEU-WORKSPACE
+    project: brazilian-banknotes
+    version: 1
+    formato: yolov8
+  # - workspace: OUTRO-WORKSPACE
+  #   project: cedulas-real
+  #   version: 2
+  #   formato: folder

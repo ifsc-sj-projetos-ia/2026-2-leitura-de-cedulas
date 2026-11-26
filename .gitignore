@@ -1,0 +1,23 @@
+# Dados (baixados/gerados — não versionar)
+data/raw/
+data/processed/
+data/proprias/**/*.jpg
+data/proprias/**/*.jpeg
+data/proprias/**/*.png
+data/proprias/**/*.heic
+
+# Treino
+runs/
+*.pt
+*.onnx
+!modelos/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Segredos
+.env
