@@ -10,15 +10,24 @@
 #   yolov8  -> dataset de detecção (caixas); o preparar.py recorta cada nota
 #   folder  -> dataset de classificação (uma pasta por classe)
 #
-# Os valores abaixo são EXEMPLOS — troque pelos datasets que você escolher
-# e registre no README a licença de cada um.
+# Todos são CC BY 4.0 (exigem citação: ver README). Conferidos em 2026-11-26.
+# Rótulos de moedas ("1 real", "10 cents", "moeda_...") são descartados pelo preparar.py.
 
 datasets:
-  - workspace: SEU-WORKSPACE
-    project: brazilian-banknotes
+  # 2.478 imagens, 7 valores x frente/verso, sem augmentation
+  - workspace: anagirelli-alunos-utfpr-edu-br
+    project: reconhecedor-de-cedulas-real
     version: 1
     formato: yolov8
-  # - workspace: OUTRO-WORKSPACE
-  #   project: cedulas-real
-  #   version: 2
-  #   formato: folder
+  # 622 imagens, 7 valores x frente/verso + moedas, sem augmentation
+  - workspace: gabriel-pereira-aakjt
+    project: reconhecimento-de-real
+    version: 2
+    formato: yolov8
+  # 1.694 imagens (~565 originais x3), 7 valores + moedas.
+  # Única versão grande tem augmentation (flip horizontal, rotação 90°); as cópias
+  # ficam no mesmo split graças ao agrupamento por imagem original.
+  - workspace: elainesilva
+    project: brazilian-currency
+    version: 12
+    formato: yolov8

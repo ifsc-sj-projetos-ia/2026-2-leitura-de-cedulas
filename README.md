@@ -26,8 +26,14 @@ do que não falar nada**.
 
 | Fonte | Conteúdo | Uso |
 |---|---|---|
-| Roboflow Universe — _preencher nome/link/licença_ | fotos de cédulas com caixas delimitadoras | treino/val/teste |
+| [Reconhecedor de Cédulas - Real](https://universe.roboflow.com/anagirelli-alunos-utfpr-edu-br/reconhecedor-de-cedulas-real) (v1, CC BY 4.0) | 2.478 imagens, 7 valores × frente/verso, sem augmentation | treino/val/teste |
+| [Reconhecimento de Real](https://universe.roboflow.com/gabriel-pereira-aakjt/reconhecimento-de-real) (v2, CC BY 4.0) | 622 imagens, 7 valores × frente/verso + moedas | treino/val/teste |
+| [Brazilian currency](https://universe.roboflow.com/elainesilva/brazilian-currency) (v12, CC BY 4.0) | 1.694 imagens (~565 originais com augmentation ×3), 7 valores + moedas | treino/val/teste |
 | Fotos próprias (`data/proprias/`) | fotos de celular de notas reais, várias condições de luz/fundo | treino/val/teste ou só teste |
+
+Os três datasets são de detecção (caixas) e exportados redimensionados para 640×640 com
+"stretch", o que distorce a proporção da nota; o recorte herda essa distorção. As moedas são descartadas.
+Licença CC BY 4.0: uso livre com atribuição aos autores (links acima).
 
 **Variável alvo:** 7 classes — `2_reais`, `5_reais`, `10_reais`, `20_reais`, `50_reais`, `100_reais`, `200_reais`.
 
