@@ -7,7 +7,7 @@ Gera em results/<nome>/:
     erros.csv            imagens erradas, para análise de erros
 
 Uso:
-    python -m cedulas.avaliar --pesos runs/classify/yolo11n/weights/best.pt --nome yolo11n
+    python -m cedulas.avaliar --pesos modelos/yolo11n.pt --nome yolo11n
 """
 
 import argparse

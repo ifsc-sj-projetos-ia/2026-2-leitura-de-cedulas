@@ -4,10 +4,12 @@ Uso (no Colab, com GPU):
     python -m cedulas.treinar --modelo yolo11n-cls.pt --epocas 30 --nome yolo11n
     python -m cedulas.treinar --modelo yolo11s-cls.pt --epocas 30 --nome yolo11s
 
-O melhor peso fica em runs/classify/<nome>/weights/best.pt.
+O melhor peso é copiado para modelos/<nome>.pt.
 """
 
 import argparse
+import shutil
+from pathlib import Path
 
 
 def main() -> None:
@@ -31,7 +33,8 @@ def main() -> None:
         imgsz=args.imgsz,
         batch=args.batch,
         name=args.nome,
-        project="runs/classify",
+        # caminho absoluto: com relativo, o Ultralytics aninha dentro do runs_dir dele
+        project=str(Path("runs/classify").resolve()),
         exist_ok=True,
         seed=args.semente,
         deterministic=True,
@@ -45,6 +48,12 @@ def main() -> None:
         auto_augment="randaugment",  # inclui rotação/perspectiva: a nota nunca está perfeitamente reta
         erasing=0.3,  # dedos cobrindo parte da nota
     )
+
+    melhor = Path(modelo.trainer.save_dir) / "weights" / "best.pt"
+    destino = Path("modelos") / f"{args.nome}.pt"
+    destino.parent.mkdir(exist_ok=True)
+    shutil.copy(melhor, destino)
+    print(f"Melhor peso salvo em {destino}")
 
 
 if __name__ == "__main__":

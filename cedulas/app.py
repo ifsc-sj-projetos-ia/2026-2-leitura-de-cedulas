@@ -4,7 +4,7 @@ A voz é gerada pelo próprio navegador (Web Speech API, pt-BR): funciona no
 celular sem instalar nada e sem enviar o áudio para nenhum servidor.
 
 Uso:
-    python -m cedulas.app --pesos runs/classify/yolo11n/weights/best.pt --compartilhar
+    python -m cedulas.app --pesos modelos/yolo11n.pt --compartilhar
 
 --compartilhar cria um link HTTPS público temporário (gradio.live). O celular só
 libera a câmera em páginas HTTPS, então é assim que se abre o app no telefone.

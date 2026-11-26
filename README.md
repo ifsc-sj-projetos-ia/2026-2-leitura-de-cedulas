@@ -96,9 +96,9 @@ export ROBOFLOW_API_KEY=...                 # https://app.roboflow.com/settings/
 python -m cedulas.baixar_roboflow           # -> data/raw/
 python -m cedulas.preparar                  # -> data/processed/
 python -m cedulas.baseline                  # -> results/baseline/
-python -m cedulas.treinar --nome yolo11n    # -> runs/classify/yolo11n/  (lento sem GPU)
-python -m cedulas.avaliar --pesos runs/classify/yolo11n/weights/best.pt --nome yolo11n
-python -m cedulas.app --pesos runs/classify/yolo11n/weights/best.pt --compartilhar
+python -m cedulas.treinar --nome yolo11n    # -> modelos/yolo11n.pt  (lento sem GPU)
+python -m cedulas.avaliar --pesos modelos/yolo11n.pt --nome yolo11n
+python -m cedulas.app --pesos modelos/yolo11n.pt --compartilhar
 pytest                                      # testes de rótulos e do split
 ```
 
@@ -125,6 +125,7 @@ configs/datasets.yaml
 data/proprias/        suas fotos (não versionadas) + protocolo de coleta
 docs/relatorio.md     escopo, requisitos e análise ética
 notebooks/            notebook do Colab
+modelos/              pesos treinados (não versionados)
 results/              métricas e gráficos de cada experimento
 tests/
 ```
